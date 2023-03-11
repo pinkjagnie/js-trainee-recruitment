@@ -47,7 +47,8 @@ export const animalsData = [
     id: 7,
     image: elephant,
     title: 'Elephant',
-    subtitle: 'It makes a difference',
+    subtitle: 'It makes a',
     highlite: 'huge',
+    subtitlePartTwo: 'difference'
   }
 ];
