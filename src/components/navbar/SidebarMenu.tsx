@@ -1,91 +1,33 @@
 import React from 'react';
+import Link from 'next/link';
 
 import styles from "./sidebarMenu.module.css";
 
 const SidebarMenu = () => {
-  const polarBearHandleClickScroll = () => {
-    const yOffset = -40; 
-    const element = document.getElementById('polarBear');
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    
-    if (element) {
-      window.scrollTo({top: y, behavior: 'smooth'});
-    }
-  };
 
-  const cheetahHandleClickScroll = () => {
-    const yOffset = -40; 
-    const element = document.getElementById('cheetah');
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    
-    if (element) {
-      window.scrollTo({top: y, behavior: 'smooth'});
-    }
+  const handleScroll = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    event.preventDefault();
+    const href = event.currentTarget.href;
+    const targetId = href.replace(/.*\#/, "");
+    const elem = document.getElementById(targetId);
+    elem?.scrollIntoView({
+      behavior: "smooth",
+    });
   };
-
-  const pandaHandleClickScroll = () => {
-    const yOffset = -40; 
-    const element = document.getElementById('panda');
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    
-    if (element) {
-      window.scrollTo({top: y, behavior: 'smooth'});
-    }
-  };
-
-  const foxHandleClickScroll = () => {
-    const yOffset = -40; 
-    const element = document.getElementById('fox');
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    
-    if (element) {
-      window.scrollTo({top: y, behavior: 'smooth'});
-    }
-  };
-
-  const squirrelHandleClickScroll = () => {
-    const yOffset = -40; 
-    const element = document.getElementById('squirrel');
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    
-    if (element) {
-      window.scrollTo({top: y, behavior: 'smooth'});
-    }
-  };
-
-  const butterflyHandleClickScroll = () => {
-    const yOffset = -40; 
-    const element = document.getElementById('butterfly');
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    
-    if (element) {
-      window.scrollTo({top: y, behavior: 'smooth'});
-    }
-  };
-
-  const elephantHandleClickScroll = () => {
-    const yOffset = -40; 
-    const element = document.getElementById('elephant');
-    const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-    
-    if (element) {
-      window.scrollTo({top: y, behavior: 'smooth'});
-    }
-  };
-
+  
   return(
     <section className={styles.sidebarMenuSection}>
       <h1 className={styles.sidebarMenuTitle}>Your new gang</h1>
 
       {/* position in menu */}
       <div className={styles.positionMenuBox}>
-        <p onClick={polarBearHandleClickScroll}>Polar bear</p>
-        <p onClick={cheetahHandleClickScroll}>Cheetah</p>
-        <p onClick={pandaHandleClickScroll}>Panda</p>
-        <p onClick={foxHandleClickScroll}>Fox</p>
-        <p onClick={squirrelHandleClickScroll}>Squireel</p>
-        <p onClick={butterflyHandleClickScroll}>Butterfly</p>
-        <p onClick={elephantHandleClickScroll}>Elephant</p>
+        <Link href="#polarBear" className={styles.link} onClick={handleScroll}>Polar bear</Link>
+        <Link href="#cheetah" className={styles.link} onClick={handleScroll}>Cheetah</Link>
+        <Link href="#panda" className={styles.link} onClick={handleScroll}>Panda</Link>
+        <Link href="#fox" className={styles.link} onClick={handleScroll}>Fox</Link>
+        <Link href="#squirrel" className={styles.link} onClick={handleScroll}>Squirrel</Link>
+        <Link href="#butterfly" className={styles.link} onClick={handleScroll}>Butterfly</Link>
+        <Link href="#elephant" className={styles.link} onClick={handleScroll}>Elephant</Link>
       </div>
 
     </section>
