@@ -1,5 +1,5 @@
 .sidebarMenuSection {
-  position: absolute;
+  position: fixed;
   top: 48px;
   left: 100px;
   height: 500px;
